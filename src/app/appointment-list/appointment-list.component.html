@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Appointment List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>mobileNo</th>
+            <th>bookingId</th>
+            <th>dateOfBooking</th>
+            <th>memberIdCard</th>
+            <th>centerCode</th>
+            <!-- <th>slot</th> -->
+            <th>Actions</th>
+            <!-- <th>center_code</th> -->
+          </tr>
+        </thead>
+        <tbody>   		<!-- in below line async pipe creates a subscription if the source is an Observable -->
+          <tr *ngFor="let appointment of appointment | async">  
+            <td>{{appointment.mobileNo}}</td>
+            <td>{{appointment.bookingId}}</td>
+            <td>{{appointment.dateOfBooking}}</td>
+            <!-- <td>{{appointment.slot}}</td> -->
+            <td>{{appointment.memberIdCard}}</td>
+            <td>{{appointment.centerCode}}</td>
+            <td><button (click)="deleteAppointment(appointment.bookingId)" class="btn btn-danger">Delete</button>
+                <button (click)="updateAppointment(appointment.bookingId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="appointmentDetails(appointment.bookingId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
